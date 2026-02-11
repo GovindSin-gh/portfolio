@@ -1,0 +1,286 @@
+/* Custom Properties for consistency */
+:root {
+    --bg-color: #0a0f1a;
+    --card-bg: #111827;
+    --accent: #3b82f6; /* Electric Blue */
+    --accent-dim: rgba(59, 130, 246, 0.1);
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --border: #1f2937;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.accent { color: var(--accent); }
+
+/* Typography */
+h1, h2, h3, h4 {
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.name {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+}
+
+/* Buttons */
+.cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.btn-primary { background: var(--accent); color: white; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px var(--accent); }
+
+.btn-secondary { background: var(--border); color: var(--text-primary); }
+.btn-outline { border: 1px solid var(--border); color: var(--text-secondary); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Section Layout */
+.section {
+    padding: 100px 0;
+    display: flex;
+    gap: 40px;
+}
+
+.section-num {
+    font-family: 'Fira Code', monospace;
+    color: var(--accent);
+    font-size: 1.2rem;
+    opacity: 0.6;
+}
+
+.section-heading {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-group h4 {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Projects */
+.project-flagship {
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge {
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.project-info h3 { font-size: 2rem; margin-bottom: 1rem; }
+.problem { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+.tech-tags { display: flex; gap: 10px; margin-bottom: 2rem; flex-wrap: wrap; }
+
+.links { display: flex; gap: 20px; }
+.links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.links a:hover { color: var(--accent); }
+.links .live-link { color: var(--accent); }
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+/* Philosophy */
+.mindset-list { list-style: none; }
+.mindset-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.mindset-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: 'Fira Code', monospace;
+}
+
+/* Footer */
+.footer {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.social-links { margin: 2rem 0; display: flex; justify-content: center; gap: 30px; }
+.social-links a { color: var(--text-primary); text-decoration: none; font-weight: 600; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section { flex-direction: column; gap: 10px; padding: 60px 0; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .hero { height: auto; padding: 100px 0; }
+}
+/* Docker Specific Button */
+.btn-docker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid #0db7ed; /* Docker Blue */
+    color: #0db7ed;
+    transition: var(--transition);
+}
+
+.btn-docker:hover {
+    background: rgba(13, 183, 237, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 183, 237, 0.2);
+}
+
+.docker-icon {
+    font-size: 1.1rem;
+    filter: grayscale(100%); /* Keeps it professional until hover */
+    transition: var(--transition);
+}
+
+.btn-docker:hover .docker-icon {
+    filter: grayscale(0%);
+}
+/* Card Internal Layout */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.tech-stack-mini {
+    display: flex;
+    gap: 4px;
+}
+
+/* Actions Bar */
+.card-actions {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 15px;
+}
+
+.action-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-family: 'Fira Code', monospace;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+/* Platform Specific Hover Colors */
+.git-link:hover { color: #f1f5f9; } /* White/Bright */
+.docker-link:hover { color: #0db7ed; } /* Docker Blue */
+.live-link:hover { color: #10b981; } /* Success Green */
+
+.action-link:hover {
+    transform: translateY(-2px);
+}
